@@ -139,6 +139,31 @@ li:hover {
 
 }
 
+.filtres {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    padding-bottom: 20px;
+}
+.filtres button {
+    display: block;
+    border: 1px solid #1D6154;
+    color: #1D6154;
+    border-radius: 60px;
+    padding: 9px 20px;
+    font-family: 'Syne';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    cursor: pointer;
+}
+.filtres button.active {
+    background-color: #1D6154;
+    color: #fff;
+}
+
 #contact {
 	width: 50%;
 margin: auto;
