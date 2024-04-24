@@ -1,19 +1,63 @@
 import { getAllWorks, getAllCategories } from "./callApi.js";
+
 const sectionWorks = document.querySelector(".gallery");
-// Cette fonction filtre les œuvres et met à jour l'affichage.
-async function filterWorks(categoryName) {
-    
-    let worksToDisplay;
-    if (categoryName === 'tous') {
-        worksToDisplay = await getAllWorks();
-    } else {
-        const allWorks = await getAllWorks();
-        worksToDisplay = allWorks.filter(work => work.category.name === categoryName);
-    }
-    // Met à jour l'affichage des œuvres.
-    worksGenerator(worksToDisplay);
+const modeEdition = document.querySelector(".mode-edition");
+const header = document.querySelector("header");
+const main = document.querySelector("main");
+const footer = document.querySelector("footer");
+const navigation = document.querySelector("#nav");
+
+// Fonction pour gérer la déconnexion
+function handleLogout(event) {
+    event.preventDefault(); // Prévenir le comportement par défaut du lien
+    // Supprimer le token du localStorage
+    window.localStorage.removeItem("token");
+
+    // Réinitialiser l'affichage pour un utilisateur non connecté
+    adjustEditMode();
+
+    // Rediriger vers la page d'accueil
+    window.location.href = './index.html'; // Assurez-vous que le chemin est correct
 }
-// Cette fonction crée le HTML pour les œuvres et l'insère dans la page.
+
+// Ajuster le mode d'édition et la navigation en fonction du statut de connexion
+function adjustEditMode() {
+    const storedToken = window.localStorage.getItem("token");
+    if (storedToken) {
+        modeEdition.style.display = "flex";
+        header.classList.add("shift");
+        main.classList.add("shift");
+        footer.classList.add("shift");
+        setupNavigation(true);
+    } else {
+        modeEdition.style.display = "none";
+        header.classList.remove("shift");
+        main.classList.remove("shift");
+        footer.classList.remove("shift");
+        setupNavigation(false);
+    }
+}
+
+// Configurer la navigation en fonction de l'état de connexion
+function setupNavigation(isLoggedIn) {
+    let navContent = `
+        <ul>
+            <li><a href="#portfolio" class="nav_link">projets</a></li>
+            <li><a href="#contact" class="nav_link">contact</a></li>
+            <li>
+                <a id="login-logout" href="${isLoggedIn ? '#' : 'login.html'}" class="nav_link">${isLoggedIn ? 'logout' : 'login'}</a>
+            </li>
+            <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+        </ul>`;
+    navigation.innerHTML = navContent;
+
+    if (isLoggedIn) {
+        // Ajouter l'événement de déconnexion
+        document.getElementById("login-logout").addEventListener('click', handleLogout);
+    }
+}
+
+// Fonction pour créer le HTML des œuvres et l'insérer dans la page
 function worksGenerator(works) {
     let figureHTML = "";
     works.forEach(work => {
@@ -25,7 +69,21 @@ function worksGenerator(works) {
     });
     sectionWorks.innerHTML = figureHTML;
 }
-// Cette fonction initialise les filtres de catégorie et gère les clics sur les boutons.
+
+// Fonction pour filtrer les œuvres et mettre à jour l'affichage
+async function filterWorks(categoryName) {
+    let worksToDisplay;
+    if (categoryName === 'tous') {
+        worksToDisplay = await getAllWorks();
+    } else {
+        const allWorks = await getAllWorks();
+        worksToDisplay = allWorks.filter(work => work.category.name === categoryName);
+    }
+    // Met à jour l'affichage des œuvres
+    worksGenerator(worksToDisplay);
+}
+
+// Fonction pour initialiser les filtres de catégorie et gérer les clics sur les boutons
 async function setupCategoryFilters() {
     let categories = await getAllCategories();
     const filtresContainer = document.querySelector(".filtres");
@@ -40,7 +98,7 @@ async function setupCategoryFilters() {
         filterWorks('tous');
     });
     filtresContainer.appendChild(allButton);
-   
+
     categories.forEach(category => {
         let button = document.createElement('button');
         button.className = 'categorie';
@@ -54,9 +112,10 @@ async function setupCategoryFilters() {
         filtresContainer.appendChild(button);
     });
 }
-// Initialisation de la page.
+
+// Événement DOMContentLoaded pour initialiser les fonctions
 document.addEventListener('DOMContentLoaded', async () => {
     await setupCategoryFilters();
-    filterWorks('tous'); // Affiche tous les travaux par défaut.
+    filterWorks('tous'); // Affiche tous les travaux par défaut
+    adjustEditMode(); // Ajuster le mode édition selon l'état de connexion
 });
-

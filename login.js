@@ -34,4 +34,3 @@ formulaire.addEventListener("submit", (event) => {
         document.querySelector(".error-message").textContent = error.message;
     });
 });
-

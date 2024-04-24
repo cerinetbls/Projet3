@@ -57,10 +57,11 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px 0;
 }
+
 section {
-	margin: 50px 0
+	margin: 50px 0;
 }
 
 h1{
@@ -83,7 +84,7 @@ h2{
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
-	color: #1D6154
+	color: #1D6154;
 }
 nav ul {
 	display: flex;
@@ -125,7 +126,7 @@ header a {
 	align-items: center;
 }
 #introduction figure {
-	flex: 1
+	flex: 1;
 }
 #introduction img {
 	display: block;
@@ -134,7 +135,7 @@ header a {
 }
 
 #introduction article {
-	flex: 1
+	flex: 1;
 }
 #introduction h2 {
 	margin-bottom: 1em;
@@ -243,6 +244,24 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+.error-message {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.error-message p {
+	width: 100%;
+	background-color: #fff;
+	border: solid 1px #B1663C;
+	padding: 10px;
+	line-height: 20px;
+	color: red;
+	font-weight: 600;
+}
+
 footer {
 	background-color: #fff;
 	position: absolute;
@@ -259,4 +278,31 @@ footer nav ul {
 
 footer nav li {
 	margin: 0 107px;
+}
+
+
+.mode-edition {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	background-color: #000;
+	gap: 20px;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top:0;
+	z-index: 2;
+	margin-bottom: 50px;
+}
+
+.mode-edition .indicateur-mode {
+	color: #fff;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.shift {
+	position: relative;
+	top : 50px;
 }
