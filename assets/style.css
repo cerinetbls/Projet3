@@ -167,6 +167,7 @@ header a {
     margin: 0;
     padding-bottom: 50px;
 }
+
 .filtres button {
     display: block;
     border: 1px solid #1D6154;
@@ -180,6 +181,7 @@ header a {
     text-align: center;
     cursor: pointer;
 }
+
 .filtres button.active {
     background-color: #1D6154;
     color: #fff;
@@ -228,7 +230,6 @@ header a {
 
 .forgetedPassword a {
 color: #000;
-
 }
 
 input[type="submit"]{
