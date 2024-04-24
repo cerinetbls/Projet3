@@ -1,23 +1,13 @@
-/*L’appel à l’API avec fetch afin de récupérer dynamiquement les projets.*/
-async function displayArchitectWorks() {
-    const response = await fetch("http://localhost:5678/api/works");
-    const works = await response.json();
-
-/*Ajout des travaux à la galerie.*/
-    works.forEach(work => {
-        const gallery = document.querySelector(".gallery");
-        const figure = document.createElement("figure");
-        const img = document.createElement("img");
-        const caption = document.createElement("figcaption");
-
-        img.src = work.imageUrl;
-        img.alt = work.title;
-        caption.textContent = work.title;
-
-        figure.appendChild(img);
-        figure.appendChild(caption);
-        gallery.appendChild(figure);
-    });
+import { getAllWorks } from "./callApi.js";
+/*Ajout à la galerie les travaux de l’architecte que j'ai récupéré.*/
+const sectionWorks = document.querySelector(".gallery");
+async function worksGenerator() {
+    const works = await getAllWorks();
+    const figureHTML = works.map(work =>
+        `<figure class="figure-${work.id}">
+            <img src="${work.imageUrl}" alt="${work.title}">
+            <figcaption>${work.title}</figcaption>
+        </figure>`).join('');
+    sectionWorks.innerHTML = figureHTML;
 }
-
-displayArchitectWorks();
+worksGenerator();
