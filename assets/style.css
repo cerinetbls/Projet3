@@ -198,14 +198,14 @@ input[type="submit"]{
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em;
-	
-	
+	margin: 2em;	
 }
+
 footer nav{
 	max-width: 1140px;
 	margin: auto;
 }
+
 .filter-bar {
 	display: flex;
 	flex-direction: row;
@@ -216,9 +216,7 @@ footer nav{
 }
 
 .filter-bar button{
-	
 	border:#1D6154 1px solid;
-	
 	cursor: pointer;
 	border-radius: 60px;
 	padding: 10px;
@@ -254,10 +252,8 @@ footer nav{
 
 .log_section .button_active {
 	border:#1D6154 1px solid;
-	
 	cursor: pointer;
 	border-radius: 60px;
-	
 	margin-left: 100px;
 	margin-bottom: 0px;
 	font-family: 'Syne';
@@ -360,7 +356,7 @@ footer{
 }
 
 
-.modale{
+.modale {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -372,6 +368,7 @@ footer{
 	justify-content: center;
 	box-sizing: border-box;
 }
+
 .modale_contained {
 	width: 630px;
 	border-radius:10px ;
@@ -385,8 +382,8 @@ footer{
 	overflow: auto;
 	position: relative;
 	box-sizing: border-box;
-
 }
+
 .modale-contained hr{
 	width: 420px;
 	color: #B3B3B3;
@@ -400,6 +397,7 @@ footer{
 	top: 28px;
 	cursor: pointer;
 }
+
 .modale-contained h3{
 	font-size: 26px;
 	font-family: 'Work Sans';
@@ -418,8 +416,8 @@ footer{
 
 .modale-gallery img{
 	width: 76.86px;
-	
 }
+
 .modale-gallery figure{
 	position: relative;
 }
@@ -451,7 +449,6 @@ footer{
 
 #modale-delete button{
 	border:#1D6154 1px solid;
-	
 	cursor: pointer;
 	border-radius: 60px;
 	padding: 10px;
@@ -462,12 +459,14 @@ footer{
 	box-sizing: border-box;
 	margin-top: 30px;
 }
+
 #modale-delete {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
+
 #modale-add .modale-back{
 	position: absolute;
 	left: 35px;
@@ -550,8 +549,7 @@ footer{
 	color:#444444;
 	font-family: 'Work Sans';
 	font-weight: 400;
-	font-size: 11px;
-	
+	font-size: 11px;	
 }
 
 #image_Label .border_ajout-Img{
