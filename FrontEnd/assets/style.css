@@ -47,12 +47,27 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
+
+
 body {
-	max-width: 1140px;
-	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background-color:rgba(255, 254, 248, 1);
+	position: relative;
+	
 }
+.main-container_index{
+	max-width: 1140px;
+	margin:auto;
+	padding-bottom: 60px;
+	min-height: 100vh;
+}
+.main-container_login{
+	max-width: 1140px;
+	margin:auto;
+	min-height: 96vh;
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
@@ -75,7 +90,7 @@ h1 > span {
 	font-family: 'Work Sans';
 	font-size:10px;
 	letter-spacing: 0.1em;
-;
+
 }
 
 h2{
@@ -183,6 +198,403 @@ input[type="submit"]{
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;	
 }
 
+footer nav{
+	max-width: 1140px;
+	margin: auto;
+}
+
+.filter-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 40px;
+	column-gap: 10px;
+}
+
+.filter-bar button{
+	border:#1D6154 1px solid;
+	cursor: pointer;
+	border-radius: 60px;
+	padding: 10px;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 16px;
+	min-width: 100px;
+}
+
+.button_inactive {
+	color:#1D6154;
+	background-color: white;
+}
+.button_active{
+	color:white;
+	background-color: #1D6154;
+}
+/* Maintenir classe .bouton_actif en dessous de .bouton_inactif pour profiter du sens de lecture de CSS pour le changement de couleur du bouton sur l'event listener JS */
+
+#login_in-use{
+	font-weight: 600;
+}
+
+.log_section{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	row-gap: 30px;
+	padding-top: 100px;
+	
+}
+
+.log_section .button_active {
+	border:#1D6154 1px solid;
+	cursor: pointer;
+	border-radius: 60px;
+	margin-left: 100px;
+	margin-bottom: 0px;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	min-width: 100px;
+	max-width: 180px;
+	height: 36px;
+}
+a{
+	text-decoration: none;
+	color:black
+}
+.forgotten_password{
+	font-family: 'Work Sans';
+	font-size: 14px;
+	text-decoration: underline;
+	font-weight: 700;
+}
+.login_form{
+	display: flex;
+	flex-direction: column;
+	width: 33%;
+	
+	
+}
+.login_form label{
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 600;
+	
+}
+.login_form input{
+	width: 100%;
+	box-shadow: 0px 4px 14px 0px rgba(0,0,0,0.09);
+	border:none;
+	height: 51px;
+	margin-bottom: 30px;
+	margin-top: 15px;
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 500;
+	outline: 0;
+	padding-left: 15px;
+}
+footer{
+	background-color: rgb(255,255,255,1);
+	height: 60px;
+	width:100%;
+	position: absolute;
+	bottom: 0px;
+}
+.Message-Login_incorrect{
+	color:red;
+	font-weight: 700;
+	font-family: 'Work Sans';
+}
+.display_none{
+	display: none;
+}
+
+.header-edition{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	color: white;
+	font-size: 16px;
+	font-family: 'Work Sans';
+	font-weight: 400;
+	height: 59px;
+}
+.header-edition .fa-pen-to-square{
+	padding-right: 10px;
+}
+.Project {
+	position: relative;
+}
+.Project .fa-pen-to-square{
+	
+	padding-right: 10px;
+	font-size: 16px;
+}
+.Project div{
+	position: absolute;
+	top: 8px;
+	right: 360px;
+	display: flex;
+	cursor: pointer;
+}
+.Project p{
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 400;
+}
+
+#Login_Logout:hover{
+	color: #B1663C;
+}
+
+
+.modale {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	display: none;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+}
+
+.modale_contained {
+	width: 630px;
+	border-radius:10px ;
+	background-color: white;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	max-width: calc(100vw - 20px);
+	max-height: calc(100vh - 20px);
+	overflow: auto;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.modale-contained hr{
+	width: 420px;
+	color: #B3B3B3;
+	
+}
+
+.modale-close {
+	font-size: 24px;
+	position: absolute;
+	right: 35px;
+	top: 28px;
+	cursor: pointer;
+}
+
+.modale-contained h3{
+	font-size: 26px;
+	font-family: 'Work Sans';
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+.modale-gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 5px;
+	grid-row-gap: 25px;
+	padding-bottom: 40px;
+}
+
+.modale-gallery img{
+	width: 76.86px;
+}
+
+.modale-gallery figure{
+	position: relative;
+}
+
+.modale-gallery .button-delete-modale{
+	width: 17px;
+	height: 17px;
+	border-radius: 2px;
+	background-color: black;
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.modale-gallery .fa-trash-can{
+	color: white;
+	font-size: 9px;
+}
+
+#modale-add {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#modale-delete button{
+	border:#1D6154 1px solid;
+	cursor: pointer;
+	border-radius: 60px;
+	padding: 10px;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 16px;
+	width: 237px;
+	box-sizing: border-box;
+	margin-top: 30px;
+}
+
+#modale-delete {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#modale-add .modale-back{
+	position: absolute;
+	left: 35px;
+	top: 28px;
+	cursor: pointer;
+	font-size: 21px;
+}
+
+.modale-form form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 420px ;
+	position: relative;
+}
+
+.modale-form label{
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.modale-form input,select{
+	width: 100%;
+	box-shadow: 0px 4px 14px 0px rgba(0,0,0,0.09);
+	border:none;
+	height: 51px;
+	margin-bottom: 30px;
+	margin-top: 15px;
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 400;
+	outline: 0;
+	padding-left: 15px;
+}
+
+.modale-form select{
+	padding-right: 20px;
+	appearance: none;
+	position: relative;
+	
+}
+
+#select-chevron_display{
+	position: relative;
+}
+
+.fa-chevron-down{
+	position: absolute;
+	right: 20px;
+	top: 35px;
+	font-size: 9px;
+	color: #6C6C6C;
+}
+
+#add_image{
+	visibility: hidden;
+	height: 0px;
+	margin: 0px;
+}
+#image_Label{
+	background-color: #E8F1F6;
+	height: 169px;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+	row-gap: 10px;
+	cursor: pointer;
+}
+
+#image_Label .fa-image{
+	color: #B9C5CC;
+	font-size: 65px;
+}
+
+#subtitle-image_Label{
+	color:#444444;
+	font-family: 'Work Sans';
+	font-weight: 400;
+	font-size: 11px;	
+}
+
+#image_Label .border_ajout-Img{
+	background-color: #B9C5CC;
+	color: #306685;
+	border-radius: 50px;
+	width: 173px;
+	height: 36px;
+	font-family: 'Work Sans';
+	font-size: 14px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#image_Label img {
+	object-fit: contain;
+	max-height: 169px;
+}
+
+
+.modale-form .button-form-inactive {
+	background-color: #A7A7A7;
+}
+
+.modale-form .button-form-active {
+	background-color: #1D6154;
+	cursor: pointer;
+}
+
+.modale-form .button-form {
+	width: 237px;
+	height: 36px;
+	color: white;
+	border-radius:60px;
+	font-size: 14px;
+	font-family: 'Syne';
+	font-weight: 700;
+	position: absolute;
+	bottom: -10px;
+	left: 91.5px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.modale-form hr{
+	margin-bottom: 50px;
+}
