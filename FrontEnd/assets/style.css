@@ -369,7 +369,7 @@ footer{
 	box-sizing: border-box;
 }
 
-.modale_contained {
+.modale-contained {
 	width: 630px;
 	border-radius:10px ;
 	background-color: white;
@@ -522,7 +522,7 @@ footer{
 	color: #6C6C6C;
 }
 
-#add_image{
+#add-image{
 	visibility: hidden;
 	height: 0px;
 	margin: 0px;

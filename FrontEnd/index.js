@@ -17,19 +17,19 @@ if(window.sessionStorage.getItem("tokenSophieBluel01")!= null){
 const filtresPhoto = document.querySelector(".filter-bar")
 
 const boutonFiltresTous = document.createElement("button")
-boutonFiltresTous.classList.add("filtres_Tous", "button-inactive")
+boutonFiltresTous.classList.add("filtres_Tous", "button_inactive")
 boutonFiltresTous.innerText = "Tous"
 
 const boutonFiltresObjets = document.createElement("button")
-boutonFiltresObjets.classList.add("filtres_Objets", "button-inactive")
+boutonFiltresObjets.classList.add("filtres_Objets", "button_inactive")
 boutonFiltresObjets.innerText = "Objets"
 
 const boutonFiltresAppartements = document.createElement("button")
-boutonFiltresAppartements.classList.add("filtres_Appartements", "button-inactive")
+boutonFiltresAppartements.classList.add("filtres_Appartements", "button_inactive")
 boutonFiltresAppartements.innerText = "Appartements"
 
 const boutonFiltresHotel = document.createElement("button")
-boutonFiltresHotel.classList.add("filtres_Hotel", "button-inactive")
+boutonFiltresHotel.classList.add("filtres_Hotel", "button_inactive")
 boutonFiltresHotel.innerText = "Hôtel & restaurants"
 
 /*Fonction affichage des images sur la page principale */
@@ -61,7 +61,7 @@ const modaleSuppressionProjet= document.getElementById("modale-delete")
 const modaleAjoutProjet=document.getElementById("modale-add")
 
 const boutonsFermetureModale=document.querySelectorAll(".modale-close")
-const stoppeursPropagationModale=document.querySelectorAll(".modale_Stop")
+const stoppeursPropagationModale=document.querySelectorAll(".modale-stop")
 
 const openModal = function(e){
     e.preventDefault()
@@ -109,11 +109,11 @@ const stopPropagation = function(e){
 
 /*Declaration et modification des elements du formulaire d'ajout des projets*/
 
-const Formulaire=document.querySelector("#Formulaire_Envoi-Img")
+const Formulaire=document.querySelector("#Form-send-img")
 const BoutonValidationFormulaire=document.createElement("input")
 BoutonValidationFormulaire.setAttribute("type","button")
 BoutonValidationFormulaire.setAttribute("value","Valider")
-BoutonValidationFormulaire.classList.add("button-form-active","button-form-inactive")
+BoutonValidationFormulaire.classList.add("button-form","button-form-inactive")
 
 const ZoneImage=document.getElementById("add-image")
 const ZoneTitre=document.getElementById("titreImg")
