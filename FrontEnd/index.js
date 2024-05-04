@@ -2,16 +2,15 @@ const reponseworks = await fetch("http://localhost:5678/api/works")
 let works = await reponseworks.json()
 
 
-let userIsLoggedIn
+let userIsLoggedIn;
 
-let Token= window.sessionStorage.getItem("tokenSophieBluel01")
-/*Definit si l'utilisateur est connecté ou non en regardant si la valeur du token est differente de null */
-if(window.sessionStorage.getItem("tokenSophieBluel01")!= null){
-    userIsLoggedIn=true
-}else{
-    userIsLoggedIn=false
+let Token = window.localStorage.getItem("tokenSophieBluel01");
+/* Définit si l'utilisateur est connecté ou non en regardant si la valeur du token est différente de null */
+if (window.localStorage.getItem("tokenSophieBluel01") != null) {
+    userIsLoggedIn = true;
+} else {
+    userIsLoggedIn = false;
 }
-
 
 /*Declaration des elements pour les boutons filtres et ajout des classes */
 const filtresPhoto = document.querySelector(".filter-bar")
@@ -328,10 +327,11 @@ if (userIsLoggedIn === true){
     LienLoginLogout.href=""
     LienLoginLogout.innerText="logout"
     /*Suppression du token au click sur le logout et rechargement de la page */
-    LienLoginLogout.addEventListener("click", function(){
-        window.sessionStorage.removeItem("tokenSophieBluel01")
-        document.location.href="index.html"
+    LienLoginLogout.addEventListener("click", function() {
+        window.localStorage.removeItem("tokenSophieBluel01");
+        document.location.href = "index.html";
     })
+    
     /*Event Listener pour ouverture modale sur la div*/
     divModificationProjet.addEventListener("click", openModal)
 

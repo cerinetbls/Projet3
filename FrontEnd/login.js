@@ -31,11 +31,10 @@ function Login(){
                 return response.json()
                 
                 .then(function(reponseConvertie){
-                    
-                    window.sessionStorage.setItem("tokenSophieBluel01",reponseConvertie.token)
-                    
-                    Redirection()
+                    window.localStorage.setItem("tokenSophieBluel01", reponseConvertie.token);
+                    Redirection();
                 })
+                
             }else{
                 
                 ErreurLogin.innerText="Erreur dans l'identifiant ou le mot de passe"
