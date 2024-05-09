@@ -247,6 +247,7 @@ footer nav{
 	align-items: center;
 	row-gap: 30px;
 	padding-top: 100px;
+	margin-bottom: 0;
 	
 }
 
@@ -310,6 +311,7 @@ footer{
 	color:red;
 	font-weight: 700;
 	font-family: 'Work Sans';
+	margin-bottom: 100px;
 }
 .display_none{
 	display: none;

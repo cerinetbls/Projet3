@@ -49,9 +49,68 @@ function affichageworks(works){
         galleryPhoto.appendChild(figurePhoto)
 
     }
-}
+} 
 
 affichageworks(works)
+
+
+
+/*Fonctionnalite des boutons filtres */
+
+boutonFiltresTous.addEventListener("click", function(){
+    boutonFiltresTous.classList.add("button_active")
+    boutonFiltresAppartements.classList.remove("button_active")
+    boutonFiltresObjets.classList.remove("button_active")
+    boutonFiltresHotel.classList.remove("button_active")
+    document.querySelector(".gallery").innerHTML=""
+    affichageworks(works)
+
+})
+
+boutonFiltresObjets.addEventListener("click", function(){
+    boutonFiltresObjets.classList.add("button_active")
+    boutonFiltresAppartements.classList.remove("button_active")
+    boutonFiltresTous.classList.remove("button_active")
+    boutonFiltresHotel.classList.remove("button_active")
+    
+    const worksObjets = works.filter(function (works){
+        return works.categoryId === 1
+    })
+    
+    document.querySelector(".gallery").innerHTML=""
+    affichageworks(worksObjets)
+
+})
+
+boutonFiltresAppartements.addEventListener("click", function(){
+    boutonFiltresAppartements.classList.add("button_active")
+    boutonFiltresObjets.classList.remove("button_active")
+    boutonFiltresTous.classList.remove("button_active")
+    boutonFiltresHotel.classList.remove("button_active")
+    
+    const worksAppartements = works.filter(function (works){
+        return works.categoryId === 2
+    })
+    
+    document.querySelector(".gallery").innerHTML=""
+    affichageworks(worksAppartements)
+
+})
+
+boutonFiltresHotel.addEventListener("click", function(){
+    boutonFiltresHotel.classList.add("button_active")
+    boutonFiltresAppartements.classList.remove("button_active")
+    boutonFiltresTous.classList.remove("button_active")
+    boutonFiltresObjets.classList.remove("button_active")
+    
+    const worksHotel = works.filter(function (works){
+        return works.categoryId === 3
+    })
+    
+    document.querySelector(".gallery").innerHTML=""
+    affichageworks(worksHotel)
+
+})
 
 /*Fonctions de gestion de la modale*/
 let modal = null
@@ -315,7 +374,7 @@ if (userIsLoggedIn === true){
     iconeEdition.classList.add("fa-regular", "fa-pen-to-square")
     iconeEdition2.classList.add("fa-regular", "fa-pen-to-square")
     texteHeader.innerText="Mode édition"
-    texteProjets.innerText="modifier"
+    texteProjets.innerText="modifier" 
 
     divHeader.appendChild(iconeEdition)
     divHeader.appendChild(texteHeader)
@@ -369,60 +428,3 @@ if (userIsLoggedIn === true){
     filtresPhoto.appendChild(boutonFiltresAppartements)
     filtresPhoto.appendChild(boutonFiltresHotel)
 }
-
-/*Fonctionnalite des boutons filtres */
-
-boutonFiltresTous.addEventListener("click", function(){
-    boutonFiltresTous.classList.add("button_active")
-    boutonFiltresAppartements.classList.remove("button_active")
-    boutonFiltresObjets.classList.remove("button_active")
-    boutonFiltresHotel.classList.remove("button_active")
-    document.querySelector(".gallery").innerHTML=""
-    affichageworks(works)
-
-})
-
-boutonFiltresObjets.addEventListener("click", function(){
-    boutonFiltresObjets.classList.add("button_active")
-    boutonFiltresAppartements.classList.remove("button_active")
-    boutonFiltresTous.classList.remove("button_active")
-    boutonFiltresHotel.classList.remove("button_active")
-    
-    const worksObjets = works.filter(function (works){
-        return works.categoryId === 1
-    })
-    
-    document.querySelector(".gallery").innerHTML=""
-    affichageworks(worksObjets)
-
-})
-
-boutonFiltresAppartements.addEventListener("click", function(){
-    boutonFiltresAppartements.classList.add("button_active")
-    boutonFiltresObjets.classList.remove("button_active")
-    boutonFiltresTous.classList.remove("button_active")
-    boutonFiltresHotel.classList.remove("button_active")
-    
-    const worksAppartements = works.filter(function (works){
-        return works.categoryId === 2
-    })
-    
-    document.querySelector(".gallery").innerHTML=""
-    affichageworks(worksAppartements)
-
-})
-
-boutonFiltresHotel.addEventListener("click", function(){
-    boutonFiltresHotel.classList.add("button_active")
-    boutonFiltresAppartements.classList.remove("button_active")
-    boutonFiltresTous.classList.remove("button_active")
-    boutonFiltresObjets.classList.remove("button_active")
-    
-    const worksHotel = works.filter(function (works){
-        return works.categoryId === 3
-    })
-    
-    document.querySelector(".gallery").innerHTML=""
-    affichageworks(worksHotel)
-
-})
